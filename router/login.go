@@ -43,3 +43,8 @@ func UserLogout(ctx *gin.Context) {
 	ctx.SetCookie("token", "", -1, "/", "my.com", false, true)
 	ctx.JSON(200, res.Ok.Json(""))
 }
+
+type UserLoginParam struct {
+	Email string `binding:"required"`
+	Pass  string `binding:"required"`
+}
